@@ -1,0 +1,27 @@
+@(alumnoForm: Form[Alumno])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+@main {
+    
+    <h1>Agrega un Alumno</h1>
+    
+    @form(routes.Application.save()) {
+        
+        <fieldset>
+        
+            @inputText(alumnoForm("nombre"), '_label -> "Nombre Alumno")
+            @inputText(alumnoForm("apellido"), '_label -> "Apellido Alumno")
+            
+         </fieldset>
+        
+        <div class="actions">
+            <input type="submit" value="Crear el nuevo alumno" class="btn primary"> or 
+            <a href="@routes.Application.list()" class="btn">Cancel</a> 
+        </div>
+        
+    }
+    
+}
