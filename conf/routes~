@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+GET     /                           controllers.Application.index()
+
+# Computers list (look at the default values for pagination parameters)
+GET     /alumno                  controllers.Application.list(p:Int ?= 0, s ?= "nombre", o ?= "asc", f ?= "")
+
+# Add Alumno
+GET     /alumno/new              controllers.Application.create()
+POST    /alumno                  controllers.Application.save()
+
+# Edit existing alumno
+GET     /alumno/:id              controllers.Application.edit(id:Long)
+POST    /alumno/:id              controllers.Application.update(id:Long)
+
+# Delete a alumno
+POST    /alumno/:id/delete       controllers.Application.delete(id:Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
